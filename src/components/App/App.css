@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2 {
+  overflow-wrap: break-word;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: 4.5rem 1fr;
+  inline-size: 100%;
+  block-size: 100dvh;
+}

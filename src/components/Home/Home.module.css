@@ -1,0 +1,17 @@
+.video {
+  pointer-events: none;
+  z-index: -1;
+  display: block;
+  position: absolute;
+  inline-size: 100vw;
+  block-size: 100vh;
+  object-fit: cover;
+  inset: 0 auto auto 0;
+}
+.heading {
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  inset-block-start: 80%;
+  position: relative;
+}

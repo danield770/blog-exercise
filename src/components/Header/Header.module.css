@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  padding: 0 7vw;
+  /* color: #2e2f38; */
+  font-size: 1rem;
+  padding: 0 8vw;
+  color: #6a6d82;
+  align-items: center;
+  gap: 50px;
+}
+.logo {
+  inline-size: 5rem;
+}
+.link {
+  color: inherit;
+}
+.lang {
+  margin-inline-start: auto;
+}
