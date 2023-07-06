@@ -7,12 +7,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/posts': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:8000',
         changeOrigin: true,
         secure: false,
       },
       '/hebrewposts': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:8000',
         changeOrigin: true,
         secure: false,
       },
