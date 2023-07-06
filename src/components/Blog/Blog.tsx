@@ -1,6 +1,6 @@
 // import React from 'react';
 import { useData } from '../../hooks/useData';
-import Header from '../Header/Header';
+import { Link } from 'react-router-dom';
 
 // interface Data {
 //   userId: number;
@@ -19,7 +19,6 @@ function Blog() {
   }
   return (
     <>
-      <Header />
       <h1>Blog</h1>
 
       {isLoading ? (
@@ -37,8 +36,9 @@ function Blog() {
               body: string;
             }) => (
               <li key={id}>
-                <div>{title}</div>
-                <p className='post-body'>{body.slice(0, 200)}</p>
+                <Link to={`/post/${id}`} state={{ id, title, body }}>
+                  {title}
+                </Link>
               </li>
             )
           )}

@@ -1,0 +1,12 @@
+.wpr {
+  max-inline-size: 64rem;
+  margin-inline: auto;
+}
+.title {
+  font-size: 2rem;
+  color: #747bff;
+  margin-block: 2rem;
+}
+.body {
+  font-size: 1.4rem;
+}

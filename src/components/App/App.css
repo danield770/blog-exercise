@@ -25,5 +25,5 @@ h2 {
   display: grid;
   grid-template-rows: 4.5rem 1fr;
   inline-size: 100%;
-  block-size: 100dvh;
+  block-size: 100dvb;
 }

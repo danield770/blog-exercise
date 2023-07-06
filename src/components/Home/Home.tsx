@@ -2,12 +2,10 @@
 
 import styles from './Home.module.css';
 import eshVideo from '../../assets/video/esh.mp4';
-import Header from '../Header/Header';
 
 function Home() {
   return (
     <>
-      <Header />
       <main className={styles.main}>
         <video
           src={eshVideo}
