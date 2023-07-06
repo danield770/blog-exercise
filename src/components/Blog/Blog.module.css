@@ -1,0 +1,50 @@
+.blogWpr {
+  display: grid;
+  place-items: center;
+}
+.navWpr {
+  display: flex;
+  gap: 20px;
+}
+.navBtn {
+}
+.blogList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  /* gap: 20px; */
+}
+.blogItem {
+  inline-size: 25dvi;
+}
+.video {
+  clip-path: circle(50% at 50% 100%);
+  inline-size: 25dvi;
+}
+.blogItem:nth-child(2) .video {
+  order: 1;
+  clip-path: circle(50% at 50% 0);
+}
+.contentWpr {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.content {
+  color: #2e2f38;
+  padding: 0 50px;
+}
+.date {
+  color: #6a6d82;
+  font-size: 0.9rem;
+}
+.title {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.body {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -2,6 +2,9 @@
   max-inline-size: 64rem;
   margin-inline: auto;
 }
+.back {
+  color: #6a6d82;
+}
 .title {
   font-size: 2rem;
   color: #747bff;

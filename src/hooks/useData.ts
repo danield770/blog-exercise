@@ -1,3 +1,4 @@
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
@@ -8,16 +9,28 @@ import axios from 'axios';
 //   body: string;
 // }
 
-export function useData(url: string, key: string) {
+export function useData(url: string, key: string, page: number) {
   console.log({ url });
   console.log({ key });
-  return useQuery({
-    queryFn: async () => {
-      const { data } = await axios.get(url);
-      console.log({ data });
 
-      return data;
-    },
-    queryKey: [key],
+  // Prefetch the next page!
+  //   React.useEffect(() => {
+  //     if (!isPreviousData && data?.hasMore) {
+  //       queryClient.prefetchQuery({
+  //         queryKey: ['projects', page + 1],
+  //         queryFn: () => fetchProjects(page + 1),
+  //       })
+  //     }
+  //   }, [data, isPreviousData, page, queryClient])
+
+  async function fetchData(url: string) {
+    const { data } = await axios.get(url);
+    return data;
+  }
+
+  return useQuery({
+    queryFn: async () => fetchData(url),
+    queryKey: [key, page],
+    keepPreviousData: true,
   });
 }

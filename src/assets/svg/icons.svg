@@ -1,0 +1,12 @@
+<!-- icons.svg -->
+<svg>
+  <!-- 1: add a `<defs>` tag -->
+  <defs>
+    <!-- 2: wrap in `<symbol>` and give it an ID (and other attributes such as `viewBox`) -->
+    <symbol id="icon1">
+      <!-- 3: paste the content of the SVG inside of the `<symbol>` -->
+      ...
+    </symbol>
+    <symbol id="icon2">...</symbol>
+  </defs>
+</svg>
