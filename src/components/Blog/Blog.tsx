@@ -2,18 +2,24 @@ import styles from './Blog.module.css';
 import React from 'react';
 import { useData } from '../../hooks/useData';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../LanguageProvider';
+import { resources } from './resources';
 
 function Blog() {
   const [page, setPage] = React.useState(1);
+  const { initial, isRTL } = useLanguage();
+  const texts = resources[initial];
   // const videoRef = React.useRef<HTMLVideoElement>(null);
 
   const POSTS_PER_PAGE = 3;
   // In a real app, the backend api should provide a way to know if there are more posts
   const TOTAL_POSTS = 12;
+  const key =
+    initial === 'en' ? 'posts' : initial === 'he' ? 'hebrewposts' : 'posts';
 
   const { data, isLoading, isPreviousData } = useData(
-    `posts?_page=${page}&_limit=${POSTS_PER_PAGE}`,
-    'posts',
+    `${key}?_page=${page}&_limit=${POSTS_PER_PAGE}`,
+    key,
     page
   );
 
@@ -22,7 +28,7 @@ function Blog() {
   return (
     <div className={styles.blogWpr}>
       {isLoading ? (
-        <div>Loading blog posts...</div>
+        <div>{texts.loading}</div>
       ) : (
         <>
           <ol className={styles.blogList}>
@@ -73,7 +79,6 @@ function Blog() {
               )
             )}
           </ol>
-          {/* <div>Current Page: {page}</div> */}
           <div className={styles.navWpr}>
             <button
               className={styles.navBtn}
@@ -81,7 +86,7 @@ function Blog() {
               onClick={() => setPage(page - 1)}
               disabled={page === 1}
             >
-              ← Previous Page
+              {isRTL ? '→' : '←'} {texts.prev}
             </button>{' '}
             <button
               type='button'
@@ -94,7 +99,7 @@ function Blog() {
                 page === Math.ceil(TOTAL_POSTS / POSTS_PER_PAGE)
               }
             >
-              Next Page →
+              {texts.next} {isRTL ? '←' : '→'}
             </button>
           </div>
           {/* <ReactQueryDevtools initialIsOpen /> */}

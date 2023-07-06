@@ -1,8 +1,5 @@
 import React from 'react';
 
-// type ILang = 'en' | 'he';
-// type ILanguageContext = [lang: ILang, changeLanguage: (lang: ILang) => void];
-
 type ILang = 'English' | 'עברית';
 type ILangInitial = 'en' | 'he';
 type ILanguageContext = {
@@ -17,7 +14,8 @@ export const LanguageContext = React.createContext<ILanguageContext | null>(
 );
 
 function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = React.useState<ILang>('English');
+  const savedLang: string | null = localStorage.getItem('lang');
+  const [lang, setLang] = React.useState<ILang>(savedLang as ILang | 'English');
 
   const changeLanguage = React.useCallback((lang: ILang) => {
     setLang(lang);
@@ -33,6 +31,7 @@ function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   React.useEffect(() => {
     window.document.documentElement.setAttribute('lang', initial);
+    window.localStorage.setItem('lang', lang);
   }, [initial]);
 
   return (

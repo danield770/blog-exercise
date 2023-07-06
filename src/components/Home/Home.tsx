@@ -1,5 +1,3 @@
-// import React from 'react';
-
 import styles from './Home.module.css';
 import eshVideo from '../../assets/video/esh.mp4';
 import { useLanguage } from '../LanguageProvider';
@@ -11,7 +9,7 @@ function Home() {
 
   return (
     <>
-      <main className={styles.main}>
+      <main>
         <video
           src={eshVideo}
           autoPlay={true}
