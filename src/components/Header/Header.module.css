@@ -14,6 +14,8 @@
   color: inherit;
   padding: 0.5rem;
 }
-/* .lang {
+.lang {
   margin-inline-start: auto;
-} */
+  display: flex;
+  align-items: center;
+}

@@ -1,40 +1,42 @@
 import React from 'react';
 
-// export interface ITodo {
-//   id: number;
-//   title: string;
-//   description: string;
-//   status: boolean;
-// }
-// export type TodoContextType = {
-//   todos: ITodo[];
-//   saveTodo: (todo: ITodo) => void;
-//   updateTodo: (id: number) => void;
-// };
-type ILang = 'en' | 'he';
-type ILanguageContext = [lang: ILang, changeLanguage: (lang: ILang) => void];
+// type ILang = 'en' | 'he';
+// type ILanguageContext = [lang: ILang, changeLanguage: (lang: ILang) => void];
 
-// type ILanguageContext = [string, React.Dispatch<React.SetStateAction<string>>];
-
-// export const TodoContext = React.createContext<TodoContextType | null>(null);
-// export const LanguageContext = React.createContext<ILanguageContext>([
-//   'en',
-//   () => null,
-// ]);
+type ILang = 'English' | 'עברית';
+type ILangInitial = 'en' | 'he';
+type ILanguageContext = {
+  lang: ILang;
+  initial: ILangInitial;
+  changeLanguage: (lang: ILang) => void;
+  isRTL: boolean;
+};
 
 export const LanguageContext = React.createContext<ILanguageContext | null>(
   null
 );
 
 function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = React.useState<ILang>('en');
+  const [lang, setLang] = React.useState<ILang>('English');
 
   const changeLanguage = React.useCallback((lang: ILang) => {
     setLang(lang);
   }, []);
 
+  const initials = {
+    English: 'en' as const,
+    עברית: 'he' as const,
+  };
+  const initial: ILangInitial = initials[lang];
+  const rtlLanguages = ['he']; // add more as necessary
+  const isRTL = rtlLanguages.includes(initial);
+
+  React.useEffect(() => {
+    window.document.documentElement.setAttribute('lang', initial);
+  }, [initial]);
+
   return (
-    <LanguageContext.Provider value={[lang, changeLanguage]}>
+    <LanguageContext.Provider value={{ lang, initial, changeLanguage, isRTL }}>
       {children}
     </LanguageContext.Provider>
   );
