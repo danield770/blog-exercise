@@ -15,7 +15,9 @@ export const LanguageContext = React.createContext<ILanguageContext | null>(
 
 function LanguageProvider({ children }: { children: React.ReactNode }) {
   const savedLang: string | null = localStorage.getItem('lang');
-  const [lang, setLang] = React.useState<ILang>(savedLang as ILang | 'English');
+  const [lang, setLang] = React.useState<ILang>(
+    (savedLang as ILang) || 'English'
+  );
 
   const changeLanguage = React.useCallback((lang: ILang) => {
     setLang(lang);
