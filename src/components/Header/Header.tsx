@@ -1,12 +1,10 @@
-// import React from 'react';
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/svg/logo.svg';
-// import langIcon from '../../assets/svg/lang.svg';
-// import { GrLanguage } from 'react-icons/gr';
-import LanguagePick from '../images/LanguageSVG';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 function Header() {
+  const languages = { en: 'English', he: 'עברית' };
   return (
     <header className={styles.header}>
       <img src={logo} alt='esh company logo' className={styles.logo}></img>
@@ -17,7 +15,7 @@ function Header() {
         Blog
       </Link>
       {/* <img src={langIcon} className={styles.lang} /> */}
-      <LanguagePick className={styles.lang} />
+      <LanguageSwitcher languages={languages} />
     </header>
   );
 }

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Blog() {
   const [page, setPage] = React.useState(1);
+  // const videoRef = React.useRef<HTMLVideoElement>(null);
 
   const POSTS_PER_PAGE = 3;
   // In a real app, the backend api should provide a way to know if there are more posts
@@ -37,7 +38,16 @@ function Blog() {
                 body: string;
                 date_created: string;
               }) => (
-                <li className={styles.blogItem} key={id}>
+                <li
+                  className={styles.blogItem}
+                  key={id}
+                  // onMouseEnter={() => {
+                  //   videoRef?.current?.play;
+                  // }}
+                  // onMouseLeave={() => {
+                  //   videoRef?.current?.pause;
+                  // }}
+                >
                   <Link to={`/post/${id}`} state={{ id, title, body }}>
                     <div className={styles.contentWpr}>
                       <video
@@ -47,6 +57,7 @@ function Blog() {
                         loop
                         playsInline
                         muted
+                        // ref={videoRef}
                       ></video>
                       <div className={styles.content}>
                         <div className={styles.date}>{date_created}</div>

@@ -1,0 +1,46 @@
+.lang {
+  margin-inline-start: auto;
+  background: none;
+  padding: 10px 10px 4px;
+}
+.languageList {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  list-style: none;
+  background: white;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.language {
+  inline-size: 6rem;
+  block-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.language:hover {
+  background-color: rgba(98, 102, 190, 0.2);
+}
+.choose {
+  padding: 8px 16px;
+}
+.choose:hover {
+  background-color: rgba(98, 102, 190, 0.2);
+}
+.btnChoose {
+  background: transparent;
+  border-radius: 0;
+}
+.btnChoose:hover {
+  border: 0;
+  background-color: rgba(100, 108, 255, 0.05);
+}
+.btnChoose:focus,
+.btnChoose:focus-visible {
+  background-color: rgba(98, 102, 190, 0.2);
+  outline: none;
+}

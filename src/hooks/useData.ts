@@ -32,5 +32,6 @@ export function useData(url: string, key: string, page: number) {
     queryFn: async () => fetchData(url),
     queryKey: [key, page],
     keepPreviousData: true,
+    refetchOnWindowFocus: false,
   });
 }
