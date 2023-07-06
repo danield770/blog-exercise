@@ -7,12 +7,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/posts': {
-        target: 'https://blog-exercise-dn8z8q1un-danield770.vercel.app/',
+        target: 'http://localhost:8000',
         changeOrigin: true,
         secure: false,
       },
       '/hebrewposts': {
-        target: 'https://blog-exercise-dn8z8q1un-danield770.vercel.app/',
+        target: 'http://localhost:8000',
         changeOrigin: true,
         secure: false,
       },
