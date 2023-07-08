@@ -9,7 +9,7 @@ To the run the app:
 6) npm run dev
 7) open a browser at: http://localhost:5173/
 
-##Please note:
+## Please note:
 I really wanted to to deploy the app on a platform like vercel, but I wasn't successful in doing so due to the server I was using for the mock-data (json-server)
 
 ## Some Comments
